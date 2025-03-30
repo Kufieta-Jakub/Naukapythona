@@ -4,20 +4,21 @@ import csv
 # for line in file:
 #     print(line, end=" ")
 # file.close()
+class Person:
+    def __init__(self,name,surname,town):
+        self.name = name
+        self.surname = surname
+        self.town = town
 
 file =  open("names_towns.csv","r",encoding="utf-8")
 csv_reader = csv.reader(file)
-names = []
-surnames = []
-towns = []
+people = []
 next(csv_reader)
 for line in csv_reader:
-    names.append(line[0])
-    surnames.append(line[1])
-    towns.append(line[2])
+    people.append(Person(line[0],line[1],line[2]))
 
-print(len(names))
+print(len(people))
 
-for i in range(len(names)):
-    print("Pan/Pani " + names[i] + " " + surnames[i]  +" mieszka w "+ towns[i] )
+for i in range(len(people)):
+    print("Pan/Pani " + people[i].name + " " + people[i].surname  +" mieszka w "+ people[i].town )
 file.close()
