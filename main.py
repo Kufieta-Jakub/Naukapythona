@@ -1,9 +1,5 @@
 import csv
 
-# file = open("Plik.txt")
-# for line in file:
-#     print(line, end=" ")
-# file.close()
 class Person:
     def __init__(self,name,surname,town):
         self.name = name
@@ -14,6 +10,7 @@ file =  open("names_towns.csv","r",encoding="utf-8")
 csv_reader = csv.reader(file)
 people = []
 next(csv_reader)
+
 for line in csv_reader:
     people.append(Person(line[0],line[1],line[2]))
 
